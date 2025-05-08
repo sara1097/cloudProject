@@ -80,7 +80,7 @@ namespace Api.Controllers
 
                     // generate token and store it
                     var token = _tokenService.GenerateJwtToken(user);
-                    await _authRepository.StoreTokenAsync(user, token);
+                    _authRepository.StoreTokenAsync(user, token);
 
                     return Ok(new
                     {

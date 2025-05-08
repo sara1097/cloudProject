@@ -4,10 +4,12 @@ using Domin.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System.Data;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Services
 {
@@ -15,16 +17,14 @@ namespace Core.Services
     {
         private readonly Jwt _jwt;
 
-       // private readonly UserManager<User> _userManager;
-
         public TokenService(IOptions<Jwt> jwt, UserManager<User> userManager)
         {
             _jwt = jwt.Value;
-           // _userManager = userManager;
         }
+
         public string GenerateJwtToken(User user)
         {
-           // var userRoles = await _userManager.GetRolesAsync(user);
+         
 
             var claims = new List<Claim>
             {
@@ -33,25 +33,30 @@ namespace Core.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
             };
-
-            //foreach (var role in userRoles)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, role));
-            //}
-
+            
+         
+            claims.Add(new Claim(ClaimTypes.Role, "User"));
+          
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secretkey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var expires = DateTime.Now.AddMinutes(_jwt.ExpiryDurationInMinutes);
+
             var token = new JwtSecurityToken(
                 issuer: _jwt.Issuer,
                 audience: _jwt.Audience,
                 claims: claims,
                 expires: expires,
                 signingCredentials: creds
-                );
+            );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public bool StoreTokenAsync(User user, string token)
+        {
+            // Implementation to store the token if needed
+            return true;
         }
     }
 }

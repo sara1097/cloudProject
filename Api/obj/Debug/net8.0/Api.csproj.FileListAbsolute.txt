@@ -325,3 +325,4 @@ C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Api\obj\Debug\net8.0\
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Api\obj\Debug\net8.0\Api.csproj.Up2Date
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Api\obj\Debug\net8.0\ref\Api.dll
+C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Api\obj\Debug\net8.0\Api.sourcelink.json

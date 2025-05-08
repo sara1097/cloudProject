@@ -23,3 +23,4 @@ C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Domin\obj\Debug\net8.
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Domin\obj\Debug\net8.0\refint\Domin.dll
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Domin\obj\Debug\net8.0\Domin.pdb
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Domin\obj\Debug\net8.0\ref\Domin.dll
+C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Domin\obj\Debug\net8.0\Domin.sourcelink.json

@@ -33,3 +33,4 @@ C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Core\bin\Debug\net8.0
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Core\bin\Debug\net8.0\Infrastructure.pdb
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Core\obj\Debug\net8.0\Core.csproj.Up2Date
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Core\obj\Debug\net8.0\ref\Core.dll
+C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Core\obj\Debug\net8.0\Core.sourcelink.json

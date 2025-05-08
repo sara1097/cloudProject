@@ -33,3 +33,4 @@ C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Infrastructure\obj\De
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\user\Desktop\sara third\cloudProject\cloudProject\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

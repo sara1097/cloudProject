@@ -83,7 +83,7 @@ namespace Api.Controllers
         }
 
         [HttpPost("Add")]
-        //[Authorize(Policy = "UserPolicy")]
+        [Authorize(Policy = "UserPolicy")]
         public async Task<IActionResult> Add(BudgetDto model)
         {
             try

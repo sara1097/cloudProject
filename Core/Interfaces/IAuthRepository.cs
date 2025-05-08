@@ -8,6 +8,6 @@ namespace Core.Interfaces
         Task<User> RegisterAsync(RegisterDto model);
         Task<User> LoginAsync(LoginDto model);
         Task<bool> UserExists(string userName);
-        Task StoreTokenAsync(User user, string token);
+        bool StoreTokenAsync(User user, string token);
     }
 }

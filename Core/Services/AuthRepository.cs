@@ -9,46 +9,47 @@ namespace Core.Services
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        public AuthRepository(UserManager<User> userManager,SignInManager<User> signInManager)
+
+        public AuthRepository(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
         }
 
-
-
         public async Task<User> RegisterAsync(RegisterDto model)
         {
-            if(await UserExists(model.UserName))
+            if (await UserExists(model.UserName))
                 return null;
+
             var user = new User
             {
                 UserName = model.UserName,
                 Email = model.Email,
-
             };
+
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                //await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(user, "User");
                 return user;
             }
+
             System.Diagnostics.Debug.WriteLine(result);
             Console.WriteLine(user == null ? "No user made" : $"User made: {user.UserName}");
             return null;
-
-
         }
+
         public async Task<User> LoginAsync(LoginDto model)
         {
             try
             {
                 var user = await _userManager.FindByNameAsync(model.UserName);
-                if(user is not null && await _userManager.CheckPasswordAsync(user, model.Password))
+                if (user is not null && await _userManager.CheckPasswordAsync(user, model.Password))
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
                     if (result.Succeeded)
                     {
+                        //await _userManager.AddToRoleAsync(user, "User");
                         return user;
                     }
                     return null;
@@ -66,12 +67,15 @@ namespace Core.Services
             var user = await _userManager.FindByNameAsync(userName);
             if (user != null)
                 return true;
+
             System.Diagnostics.Debug.WriteLine(user == null ? "No user found" : $"User found: {user.UserName}");
             return false;
         }
-        public async Task StoreTokenAsync(User user, string token)
+
+        public  bool StoreTokenAsync(User user, string token)
         {
-            await _userManager.SetAuthenticationTokenAsync(user,"JWT","Access_Token",token);
+            _userManager.SetAuthenticationTokenAsync(user, "JWT", "Access_Token", token);
+            return true;
         }
     }
 }
